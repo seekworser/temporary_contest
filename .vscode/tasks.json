@@ -1,0 +1,112 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "competitiveTest",
+            "type": "shell",
+            "command": "cd ${fileDirname} && g++ -O3 -std=c++20 -mtune=native -march=native -I ${config:CPP_CP_LIB}/competitive_library ${fileBasename} && oj t -t 4 --print-memory -j 4",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "competitiveCompile",
+            "type": "shell",
+            "command": "cd ${fileDirname} && g++ -O3 -std=c++20 -mtune=native -march=native -D_GLIBCXX_DEBUG_PEDANTIC -D_GLIBCXX_DEBUG -DKV_NOHWROUUND -DLOCAL_TEST -I ${config:CPP_CP_LIB}/competitive_library ${fileBasename}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "competitiveNaiveCompile",
+            "type": "shell",
+            "command": "cd ${fileDirname} && g++ -O3 -std=c++20 -mtune=native -march=native -I ${config:CPP_CP_LIB}/competitive_library -o naive.o ${fileBasename}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "competitiveSubmit",
+            "type": "shell",
+            "command": "cd ${fileDirname} && oj-bundle -I ${config:CPP_CP_LIB}/competitive_library ${fileBasename} > combined.cpp && cat combined.cpp && xclip -selection c combined.cpp && oj s combined.cpp",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "competitiveDebug",
+            "type": "shell",
+            "command": "cd ${fileDirname} && g++ -O1 -std=c++20 -mtune=native -march=native -D_GLIBCXX_DEBUG_PEDANTIC -D_GLIBCXX_DEBUG -DKV_NOHWROUUND -DLOCAL_TEST -I ${config:CPP_CP_LIB}/competitive_library ${fileBasename} && oj t -t 20 --print-memory",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "competitiveDebug-nim",
+            "type": "shell",
+            "command": "cd ${fileDirname} && nim c -o:a.out ${fileBasename} && oj t -t 20 --print-memory",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+        },
+        {
+            "label": "competitiveSubmit-nim",
+            "type": "shell",
+            "command": "cd ${fileDirname} && python ~/.nim-lib/competitive-nim/expander.py ${fileBasename} --lib ~/.nim-lib/competitive-nim -s && oj s combined.nim",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+        },
+        {
+            "label": "competitiveCompile-nim",
+            "type": "shell",
+            "command": "cd ${fileDirname} && nim c -o:a.out ${fileBasename}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+        },
+        {
+            "label": "competitiveTest-nim",
+            "type": "shell",
+            "command": "cd ${fileDirname} && nim c -o:a.out ${fileBasename} && oj t -t 20 --print-memory",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+        }
+    ]
+}

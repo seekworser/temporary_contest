@@ -1,0 +1,25 @@
+#!/bin/bash
+url=$1
+Name=$2
+if [ -z "$Name" ]; then
+    Name=$(echo "$1" | grep -o '[^/]*$')
+fi
+if [[ "$url" == *"codeforces"* ]]; then
+  template_file="templates/answer_cf.cpp"
+elif [[ "$url" == *"u-aizu"* ]]; then
+  template_file="templates/answer_cf.cpp"
+else
+  template_file="templates/answer.cpp"
+fi
+if [[ "$Name" =~ [\&\?] ]]; then
+    echo "Invarid charactor in folder name: $Name"
+    exit
+fi
+if [ -d "cases/$Name" ]; then
+  echo "cases/$Name already exists."
+  exit
+fi
+mkdir "cases/$Name"
+cp $template_file "cases/$Name/answer.cpp"
+cd "cases/$Name"
+oj d $url

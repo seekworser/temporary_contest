@@ -1,0 +1,2 @@
+#!/bin/bash
+oj g/i -d "cases/$1/test" "./rand/a.out" $2

@@ -1,0 +1,11 @@
+#!/bin/bash
+Name=$1
+if [ -z "$Name" ]; then
+    echo "please specify name"
+    exit
+fi
+if [ ! -d "cases/$Name" ]; then
+  echo "cases/$Name not exists."
+  exit
+fi
+cp cases/$Name/answer.cpp cases/$Name/answer_bf.cpp

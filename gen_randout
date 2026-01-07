@@ -1,0 +1,2 @@
+#!/bin/bash
+oj g/o -d "cases/$1/test" -c "cases/$1/a.out"

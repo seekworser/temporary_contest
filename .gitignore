@@ -1,0 +1,10 @@
+cases/*
+!cases/.keep
+geckodriver.log
+.vscode/*
+!.vscode/tasks.json
+!.vscode/settings_example.json
+!.vscode/keybindings_example.json
+a.out
+naive.o
+random.cpp

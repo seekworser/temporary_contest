@@ -1,0 +1,65 @@
+[
+    {
+        "key": "ctrl+h",
+        "command": "-editor.action.startFindReplaceAction",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.cpp/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveTest"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.cpp/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveSubmit"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.cpp/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveCompile"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.cpp/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveNaiveCompile"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.cpp/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveDebug"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.nim/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveDebug-nim"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.nim/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveSubmit-nim"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.nim/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveCompile-nim"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus && resourceExtname =~ /\\.nim/ && config.workspaceKeybindings.myTasks.enabled",
+        "args": "competitiveTest-nim"
+    }
+]
